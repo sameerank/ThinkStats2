@@ -33,8 +33,14 @@ def cross_validate_with_preg(preg_df, resp_df):
 
 
 class TestNsfgData(unittest.TestCase):
+    """
+    Data for tests from http://www.icpsr.umich.edu/nsfg6/Controller?displayPage=labelDetails&fileCode=FEM&section=B&subSec=7820&srtLabel=604531
+    """
     PREG_DF = nsfg.ReadFemPreg()
     RESP_DF = ReadFemResp()
+
+    def test_total_number_of_response(self):
+        self.assertEqual(len(RESP_DF), 7644)
 
     def test_pregnum_value_counts(self):
         pregnum_vc_series = pregnum_value_counts(TestNsfgData.RESP_DF)
