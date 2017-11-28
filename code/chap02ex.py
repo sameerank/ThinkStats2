@@ -21,8 +21,8 @@ def Mode(hist):
 
     returns: value from Hist
     """
-    h_freq, h_val = max((v, k) for k, v in hist.GetDict().items())
-    return h_val
+    val_with_highest_freq, _ = max(hist.GetDict().items(), key=itemgetter(1))
+    return val_with_highest_freq
 
 
 def AllModes(hist):
@@ -32,9 +32,7 @@ def AllModes(hist):
 
     returns: iterator of value-freq pairs
     """
-    sorted_by_freq = sorted(
-        ((freq, val) for val, freq in hist.GetDict().items()), reverse =True)
-    return [(val, freq) for freq, val in sorted_by_freq]
+    return sorted(hist.GetDict().items(), key=itemgetter(1), reverse=True)
 
 
 def main(script):
