@@ -40,7 +40,7 @@ class TestNsfgData(unittest.TestCase):
     RESP_DF = ReadFemResp()
 
     def test_total_number_of_response(self):
-        self.assertEqual(len(RESP_DF), 7644)
+        self.assertEqual(len(TestNsfgData.RESP_DF), 7644)
 
     def test_pregnum_value_counts(self):
         pregnum_vc_series = pregnum_value_counts(TestNsfgData.RESP_DF)
